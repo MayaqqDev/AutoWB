@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "autowb",
+    "name": "AutoWB",
+    "description": "Says Welcome back <name>! to your guild members when they join",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Maximusbar"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
