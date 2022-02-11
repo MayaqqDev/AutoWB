@@ -40,7 +40,7 @@ public class AutoWB {
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
             Minecraft.getMinecraft().thePlayer.sendChatMessage(
 
-                    "Welcome back " + msgTrimmed + "!"
+                    "/gc Welcome back " + msgTrimmed + "!"
             );
 
         }
