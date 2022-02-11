@@ -5,8 +5,8 @@ plugins {
 }
 
 version = "1.0"
-group = "dev.asbyth"
-archivesBaseName = "ForgeTemplate"
+group = "mod.maximusbar"
+archivesBaseName = "AutoWB"
 
 sourceCompatibility = targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
