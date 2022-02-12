@@ -7,6 +7,9 @@ import net.minecraft.client.Minecraft;
         import net.minecraftforge.fml.common.Mod;
         import net.minecraftforge.fml.common.event.FMLInitializationEvent;
         import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import xyz.deftu.deftils.Multithreading;
+
+import java.util.concurrent.TimeUnit;
 
 
 @Mod(modid = "autowb", name = "AutoWB", version = "1.0")
@@ -34,14 +37,18 @@ public class AutoWB {
     }
 
     @SubscribeEvent
-    public void onChat(ClientChatReceivedEvent event) {
+    public void onChat(ClientChatReceivedEvent event){
         String msg = event.message.getUnformattedText();
         if (msg.startsWith("Guild > ") && msg.endsWith(" joined.")){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
-            Minecraft.getMinecraft().thePlayer.sendChatMessage(
 
-                    "/gc Welcome back " + msgTrimmed + "!"
-            );
+            Multithreading.schedule(() -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage(
+                        "/gc Welcome back " + msgTrimmed + "!"
+                );
+            }, 2 /* time according to the unit. */, TimeUnit.SECONDS /* the unit of time that this will be executed in */);
+
+
 
         }
 
