@@ -4,7 +4,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "6f53277"
 }
 
-version = "1.0"
+version = "1.1"
 group = "mod.maximusbar"
 archivesBaseName = "AutoWB"
 
@@ -34,7 +34,7 @@ dependencies {
     // implementation "com.example:example:1.0.0"
     // If you would like to include it (have the library inside your jar) instead use
     // include "com.example:example:1.0.0"
-    implementation("xyz.deftu.deftils:Deftils:1.2.2")
+    include("xyz.deftu.deftils:Deftils:1.2.2")
 }
 
 /**
