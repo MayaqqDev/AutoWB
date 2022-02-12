@@ -12,7 +12,7 @@
     ],
     "credits": "",
     "logoFile": "logoplaceholder.png",
-    "screenshots": [],
+    "screenshots": ["preview.png"],
     "dependencies": []
   }
 ]
