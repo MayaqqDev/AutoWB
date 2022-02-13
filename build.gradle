@@ -4,7 +4,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "6f53277"
 }
 
-version = "1.1"
+version = "2.0"
 group = "mod.maximusbar"
 archivesBaseName = "AutoWB"
 
@@ -27,6 +27,9 @@ configurations {
 repositories {
     // Add maven repositories to your buildscript so that they can be used to resolve dependencies
     // maven "https://repo1.maven.org/maven2/"
+    maven {
+        url = "https://repo.sk1er.club/repository/maven-public"
+    }
 }
 
 dependencies {
@@ -34,6 +37,10 @@ dependencies {
     // implementation "com.example:example:1.0.0"
     // If you would like to include it (have the library inside your jar) instead use
     // include "com.example:example:1.0.0"
+    include ('gg.essential:loader-launchwrapper:1.1.3') {
+        transitive = false
+    }
+    compileOnly 'gg.essential:essential-1.8.9-forge:1788'
     include("xyz.deftu.deftils:Deftils:1.2.2")
 }
 
