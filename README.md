@@ -4,9 +4,6 @@ Mod that automatically says welcome back to players that join back into hypixel 
 ## FAQ
 
 ### What is the config screen command?
- - No config yet but it should work without it for now
- 
-### How do i disable the mod?
  - You can configure and disable the mod by doing /autowb
  
  ## Where did the idea come from?
