@@ -68,10 +68,20 @@ public class AutoWB {
             if (Config.toggle2){
                 int r = (int) (Math.random()*6);
                 String sendMessage = new String [] {Config.sendMessage1, Config.sendMessage2, Config.sendMessage3, Config.sendMessage4, Config.sendMessage5, Config.sendMessage6}[r];
-                Multithreading.schedule(() -> {
+                if (sendMessage.equals("")){
+                    Multithreading.schedule(() -> {
+                        Minecraft.getMinecraft().thePlayer.sendChatMessage(
+                                Config.sendMessage1 + msgTrimmed
+                        );}, 2, TimeUnit.SECONDS);
+
+
+                }
+
+                else{ Multithreading.schedule(() -> {
                 Minecraft.getMinecraft().thePlayer.sendChatMessage(
                          sendMessage + msgTrimmed
                 );}, 2, TimeUnit.SECONDS);
+                }
 
 
 

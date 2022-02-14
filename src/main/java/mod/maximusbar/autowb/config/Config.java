@@ -19,7 +19,7 @@ public class Config extends Vigilant {
     @Property(
             type = PropertyType.TEXT,
             name = "Message",
-            description = "Chnages the message that gets send.",
+            description = "Chnages the primary message that gets send when someone joins in your guild (Also when the random messages are blank).",
             category = "General"
     )
     public static String sendMessage1= "Welcome Back! ";
@@ -28,47 +28,47 @@ public class Config extends Vigilant {
             type = PropertyType.SWITCH,
             name = "Random messages",
             description = "Enables random messages.",
-            category = "General", subcategory = "Secondary messages"
+            category = "General", subcategory = "Random messages"
     )
     public static boolean toggle2 = false;
 
     @Property(
             type = PropertyType.TEXT,
             name = "First random message",
-            description = "The random message that has chance to be said.",
-            category = "General", subcategory = "Secondary messages"
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
     )
     public static String sendMessage2= "Welcome back General ";
 
     @Property(
             type = PropertyType.TEXT,
             name = "First random message",
-            description = "The random message that has chance to be said.",
-            category = "General", subcategory = "Secondary messages"
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
     )
     public static String sendMessage3= "WB! ";
 
     @Property(
             type = PropertyType.TEXT,
             name = "First random message",
-            description = "The random message that has chance to be said.",
-            category = "General", subcategory = "Secondary messages"
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
     )
     public static String sendMessage4= "Greetings! ";
 
     @Property(
             type = PropertyType.TEXT,
             name = "First random message",
-            description = "The random message that has chance to be said.",
-            category = "General", subcategory = "Secondary messages"
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
     )
     public static String sendMessage5= "Thanks for coming back to hell >:) ";
 
     @Property(
             type = PropertyType.TEXT,
             name = "First random message",
-            description = "The random message that has chance to be said.",
-            category = "General", subcategory = "Secondary messages"
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
     )
     public static String sendMessage6= "Its nice having you here today ";
 
