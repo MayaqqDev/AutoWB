@@ -1,7 +1,5 @@
 package mod.maximusbar.autowb;
 
-
-import gg.essential.vigilance.Vigilant;
 import mod.maximusbar.autowb.command.AutoWBCommand;
 import net.minecraft.client.Minecraft;
         import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -17,7 +15,10 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 
+
 @Mod(modid = "autowb", name = "AutoWB", version = "2.0")
+
+
 public class AutoWB {
 
     private boolean running;
@@ -64,14 +65,26 @@ public class AutoWB {
         if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle)){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
 
-            Multithreading.schedule(() -> {
+            if (Config.toggle2){
+                int r = (int) (Math.random()*6);
+                String sendMessage = new String [] {Config.sendMessage1, Config.sendMessage2, Config.sendMessage3, Config.sendMessage4, Config.sendMessage5, Config.sendMessage6}[r];
+                Multithreading.schedule(() -> {
                 Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                        //"/gc Welcome back " + msgTrimmed + "!"
-                        Config.sendmessage + msgTrimmed
-                );
-            }, 2, TimeUnit.SECONDS);
+                         sendMessage + msgTrimmed
+                );}, 2, TimeUnit.SECONDS);
 
 
+
+
+
+
+            }else{ Multithreading.schedule(() -> {
+                        Minecraft.getMinecraft().thePlayer.sendChatMessage(
+                                Config.sendMessage1 + msgTrimmed
+                        );
+                    }, 2, TimeUnit.SECONDS);
+
+            }
 
         }
 
