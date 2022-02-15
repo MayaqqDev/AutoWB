@@ -14,17 +14,16 @@ import mod.maximusbar.autowb.config.Config;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+//Some registering stuff
 
-
-@Mod(modid = "autowb", name = "AutoWB", version = "2.0")
+@Mod(modid = "autowb", name = "AutoWB", version = "2.5")
 
 
 public class AutoWB {
 
     private boolean running;
-    public static final String NAME = "@NAME@", VER = "@VER@", ID = "@ID@";
     public static File jarFile;
-    public static File modDir = new File(new File(Minecraft.getMinecraft().mcDataDir, "W-OVERFLOW"), NAME);
+    public static File modDir = new File(new File(Minecraft.getMinecraft().mcDataDir, "config"), "AutoWB");
     public static Config config;
 
 
@@ -60,34 +59,39 @@ public class AutoWB {
     }
 
     @SubscribeEvent
+    //The chat receive event
     public void onChat(ClientChatReceivedEvent event){
         String msg = event.message.getUnformattedText();
+        //Trimming of the message so its left only with the name
         if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle)){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
 
+
+            //What happens when you have random message enabled
             if (Config.toggle2){
-                int r = (int) (Math.random()*6);
-                String sendMessage = new String [] {Config.sendMessage1, Config.sendMessage2, Config.sendMessage3, Config.sendMessage4, Config.sendMessage5, Config.sendMessage6}[r];
-                if (sendMessage.equals("")){
-                    Multithreading.schedule(() -> {
-                        Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                Config.sendMessage1 + msgTrimmed
-                        );}, 2, TimeUnit.SECONDS);
-
-
+                while(true) {
+                int r = (int) (Math.random()*10);
+                String sendMessage = new String [] {
+                        Config.sendMessage1,
+                        Config.sendMessage2,
+                        Config.sendMessage3,
+                        Config.sendMessage4,
+                        Config.sendMessage5,
+                        Config.sendMessage6,
+                        Config.sendMessage7,
+                        Config.sendMessage8,
+                        Config.sendMessage9,
+                        Config.sendMessage10
+                }[r];
+                    if (!sendMessage.equals("")){
+                        Multithreading.schedule(() -> {
+                            Minecraft.getMinecraft().thePlayer.sendChatMessage(
+                                    sendMessage + msgTrimmed
+                            );}, 2, TimeUnit.SECONDS);
+                        break;
+                    }
                 }
-
-                else{ Multithreading.schedule(() -> {
-                Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                         sendMessage + msgTrimmed
-                );}, 2, TimeUnit.SECONDS);
-                }
-
-
-
-
-
-
+                //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
                         Minecraft.getMinecraft().thePlayer.sendChatMessage(
                                 Config.sendMessage1 + msgTrimmed

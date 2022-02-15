@@ -1,12 +1,13 @@
 package mod.maximusbar.autowb.config;
 
+import gg.essential.api.EssentialAPI;
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
 import gg.essential.vigilance.data.PropertyType;
 import mod.maximusbar.autowb.AutoWB;
 
 import java.io.File;
-
+//All the gui components in /autowb
 public class Config extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
@@ -19,7 +20,7 @@ public class Config extends Vigilant {
     @Property(
             type = PropertyType.TEXT,
             name = "Message",
-            description = "Chnages the primary message that gets send when someone joins in your guild (Also when the random messages are blank).",
+            description = "Chnages the primary message that gets send when someone joins in your guild (Also when the random messages are blank, don't forget to put the space at the end).",
             category = "General"
     )
     public static String sendMessage1= "Welcome Back! ";
@@ -38,11 +39,11 @@ public class Config extends Vigilant {
             description = "The random message that has chance to be send (leave blank to disable).",
             category = "General", subcategory = "Random messages"
     )
-    public static String sendMessage2= "Welcome back General ";
+    public static String sendMessage2= "Welcome back... General ";
 
     @Property(
             type = PropertyType.TEXT,
-            name = "First random message",
+            name = "Second random message",
             description = "The random message that has chance to be send (leave blank to disable).",
             category = "General", subcategory = "Random messages"
     )
@@ -50,7 +51,7 @@ public class Config extends Vigilant {
 
     @Property(
             type = PropertyType.TEXT,
-            name = "First random message",
+            name = "Third random message",
             description = "The random message that has chance to be send (leave blank to disable).",
             category = "General", subcategory = "Random messages"
     )
@@ -58,7 +59,7 @@ public class Config extends Vigilant {
 
     @Property(
             type = PropertyType.TEXT,
-            name = "First random message",
+            name = "Fourth random message",
             description = "The random message that has chance to be send (leave blank to disable).",
             category = "General", subcategory = "Random messages"
     )
@@ -66,17 +67,48 @@ public class Config extends Vigilant {
 
     @Property(
             type = PropertyType.TEXT,
-            name = "First random message",
+            name = "Fifth random message",
             description = "The random message that has chance to be send (leave blank to disable).",
             category = "General", subcategory = "Random messages"
     )
     public static String sendMessage6= "Its nice having you here today ";
 
+    @Property(
+            type = PropertyType.TEXT,
+            name = "Sixth random message",
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
+    )
+    public static String sendMessage7= "Yooooooooo Mr.";
 
+    @Property(
+            type = PropertyType.TEXT,
+            name = "Seventh random message",
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
+    )
+    public static String sendMessage8= "Welcome back Padawan ";
+
+    @Property(
+            type = PropertyType.TEXT,
+            name = "Eighth random message",
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
+    )
+    public static String sendMessage9= "Welcome Back! <3 ";
+
+    @Property(
+            type = PropertyType.TEXT,
+            name = "Ninth random message",
+            description = "The random message that has chance to be send (leave blank to disable).",
+            category = "General", subcategory = "Random messages"
+    )
+    public static String sendMessage10= "Thanks for coming to my TED talk ";
 
     public Config() {
         super(new File(AutoWB.modDir, "autowb.toml"), "AutoWB");
         initialize();
-    }
 
+
+    }
 }

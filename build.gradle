@@ -4,7 +4,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "6f53277"
 }
 
-version = "2.0"
+version = "2.5"
 group = "mod.maximusbar"
 archivesBaseName = "AutoWB"
 
@@ -14,8 +14,10 @@ compileJava.options.encoding = 'UTF-8'
 minecraft {
     version = "1.8.9-11.15.1.2318-1.8.9"
     runDir = "run"
+
     mappings = "stable_22"
     makeObfSourceJar = false
+
 }
 
 configurations {
@@ -58,6 +60,7 @@ processResources {
 
         // replace version and mcversion
         expand 'version': project.version, 'mcversion': project.minecraft.version
+
     }
 
     // copy everything else, thats not the mcmod.info
