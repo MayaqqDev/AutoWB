@@ -94,7 +94,7 @@ public class AutoWB {
                 //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
                         Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                Config.sendMessage1 + msgTrimmed
+                                "/gc " + Config.sendMessage1 + msgTrimmed
                         );
                     }, 2, TimeUnit.SECONDS);
 
