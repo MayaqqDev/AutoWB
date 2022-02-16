@@ -4,7 +4,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "6f53277"
 }
 
-version = "2.5"
+version = "2.5.2"
 group = "mod.maximusbar"
 archivesBaseName = "AutoWB"
 
