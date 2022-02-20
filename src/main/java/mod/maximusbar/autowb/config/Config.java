@@ -18,6 +18,22 @@ public class Config extends Vigilant {
     public static boolean toggle = true;
 
     @Property(
+            type = PropertyType.SWITCH,
+            name = "Toggle Guild",
+            description = "Toggles if the message gets send to Guild",
+            category = "General"
+    )
+    public static boolean guildToggle = true;
+
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Toggle Friends",
+            description = "Toggles If message gets send to Friends",
+            category = "General"
+    )
+    public static boolean friendsToggle = true;
+
+    @Property(
             type = PropertyType.TEXT,
             name = "Message",
             description = "Chnages the primary message that gets send when someone joins in your guild (Also when the random messages are blank, don't forget to put the space at the end).",

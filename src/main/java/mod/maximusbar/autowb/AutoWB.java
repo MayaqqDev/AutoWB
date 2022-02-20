@@ -63,7 +63,7 @@ public class AutoWB {
     public void onChat(ClientChatReceivedEvent event){
         String msg = event.message.getUnformattedText();
         //Trimming of the message so its left only with the name
-        if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle)){
+        if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.guildToggle)){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
 
 
@@ -98,12 +98,48 @@ public class AutoWB {
                         );
                     }, 2, TimeUnit.SECONDS);
 
+
+
+
             }
 
         }
+        if (msg.startsWith("Friend > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.friendsToggle)){
+            String name = msg.replace("Friend > ","").replace(" joined.","");
 
+
+            //What happens when you have random message enabled
+            if (Config.toggle2){
+                while(true) {
+                    int r = (int) (Math.random()*10);
+                    String sendMessage = new String [] {
+                            Config.sendMessage1,
+                            Config.sendMessage2,
+                            Config.sendMessage3,
+                            Config.sendMessage4,
+                            Config.sendMessage5,
+                            Config.sendMessage6,
+                            Config.sendMessage7,
+                            Config.sendMessage8,
+                            Config.sendMessage9,
+                            Config.sendMessage10
+                    }[r];
+                    if (!sendMessage.equals("")){
+                        Multithreading.schedule(() -> {
+                            Minecraft.getMinecraft().thePlayer.sendChatMessage(
+                                    "/msg " + name + sendMessage + name
+                            );}, 2, TimeUnit.SECONDS);
+                        break;
+                    }
+                }
+                //What happens when you have the random message disabled
+            }else{ Multithreading.schedule(() -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage(
+                        "/msg " + name + Config.sendMessage1 + name
+                );
+            }, 2, TimeUnit.SECONDS);
+
+            }
+        }
     }
-
-
 }
-
