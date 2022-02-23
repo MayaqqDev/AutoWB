@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 //Some registering stuff
 
-@Mod(modid = "autowb", name = "AutoWB", version = "2.5.2")
+@Mod(modid = "autowb", name = "AutoWB", version = "3.0")
 
 
 public class AutoWB {
@@ -127,7 +127,7 @@ public class AutoWB {
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                    "/msg " + name + sendMessage + name
+                                    "/msg " + name + " " + sendMessage + name
                             );}, 2, TimeUnit.SECONDS);
                         break;
                     }
