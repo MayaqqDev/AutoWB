@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 //Some registering stuff
 
-@Mod(modid = "autowb", name = "AutoWB", version = "3.0")
+@Mod(modid = "autowb", name = "AutoWB", version = "3.1")
 
 
 public class AutoWB {
