@@ -1,5 +1,7 @@
 # AutoWB
-Mod that automatically says welcome back to players that join back into hypixel in your guild
+![Download Count](https://img.shields.io/github/downloads/Maximusbarcz/AutoWB/total?color=08ff52&style=for-the-badge)
+![Latest Download Count](https://img.shields.io/github/downloads-pre/Maximusbarcz/AutoWB/latest/total?color=08ff52&style=for-the-badge)\
+Mod that automatically says welcome back to players that join back into hypixel in your guild/friends list
 
 ## FAQ
 
