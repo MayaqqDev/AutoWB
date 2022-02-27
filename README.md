@@ -13,3 +13,5 @@ Mod that automatically says welcome back to players that join back into hypixel 
  ## Where did the idea come from?
  
  Its from a chat triggers moduel but i dont like to use chat triggers and i like to make it my way
+ 
+ # Join my Discord: https://discord.gg/NkY3VnGeUX
