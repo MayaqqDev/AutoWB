@@ -1,9 +1,10 @@
 package mod.maximusbar.autowb.command;
 
+import mod.maximusbar.autowb.AutoWB;
+
 import gg.essential.api.EssentialAPI;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;
-import mod.maximusbar.autowb.AutoWB;
 
 public class AutoWBCommand extends Command {
     public AutoWBCommand() {

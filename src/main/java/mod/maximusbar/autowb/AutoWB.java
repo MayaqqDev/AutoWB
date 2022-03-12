@@ -2,14 +2,16 @@ package mod.maximusbar.autowb;
 
 import gg.essential.api.utils.Multithreading;
 import mod.maximusbar.autowb.command.AutoWBCommand;
+import mod.maximusbar.autowb.config.Config;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;
+
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
-        import net.minecraftforge.common.MinecraftForge;
-        import net.minecraftforge.fml.common.Mod;
-        import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import mod.maximusbar.autowb.config.Config;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -46,7 +48,7 @@ public class AutoWB {
         if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.guildToggle)){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
             //What happens when you have random message enabled
-            if (Config.toggle2){
+            if (Config.random){
                 while(true) {
                 int r = (int) (Math.random()*10);
                 String sendMessage = new String [] {
@@ -81,7 +83,7 @@ public class AutoWB {
         if (msg.startsWith("Friend > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.friendsToggle)){
             String name = msg.replace("Friend > ","").replace(" joined.","");
             //What happens when you have random message enabled
-            if (Config.toggle2){
+            if (Config.random){
                 while(true) {
                     int r = (int) (Math.random()*10);
                     String sendMessage = new String [] {
@@ -96,6 +98,7 @@ public class AutoWB {
                             Config.sendMessage9,
                             Config.sendMessage10
                     }[r].replace("%player%", name);
+
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
