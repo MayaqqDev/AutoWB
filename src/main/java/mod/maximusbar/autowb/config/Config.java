@@ -1,6 +1,5 @@
 package mod.maximusbar.autowb.config;
 
-import gg.essential.api.EssentialAPI;
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
 import gg.essential.vigilance.data.PropertyType;
@@ -34,13 +33,14 @@ public class Config extends Vigilant {
     public static boolean friendsToggle = true;
 
     @Property(
-            type = PropertyType.DECIMAL_SLIDER,
+            type = PropertyType.SLIDER,
             name = "Seconds",
             description = "After how many seconds will the message be send.",
             category = "General",
-            minF = 2F, maxF = 10F
+            min = 2,
+            max = 10
     )
-    public static float sendSeconds = 2F;
+    public static int sendSeconds = 2;
 
     @Property(
             type = PropertyType.TEXT,

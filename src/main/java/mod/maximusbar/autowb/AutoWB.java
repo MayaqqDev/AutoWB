@@ -3,7 +3,8 @@ package mod.maximusbar.autowb;
 import gg.essential.api.utils.Multithreading;
 import mod.maximusbar.autowb.command.AutoWBCommand;
 import net.minecraft.client.Minecraft;
-        import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
         import net.minecraftforge.common.MinecraftForge;
         import net.minecraftforge.fml.common.Mod;
         import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -31,7 +32,6 @@ public class AutoWB {
         config.preload();
         new AutoWBCommand().register();
     }
-
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
@@ -40,8 +40,8 @@ public class AutoWB {
     @SubscribeEvent
     //The chat receive event
     public void onChat(ClientChatReceivedEvent event){
-        int delay = (int) Config.sendSeconds;
-        String msg = event.message.getUnformattedText();
+
+        String msg = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
         //Trimming of the message so its left only with the name
         if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.guildToggle)){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
@@ -65,7 +65,7 @@ public class AutoWB {
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
                                     "/gc " + sendMessage + msgTrimmed
-                            );}, delay, TimeUnit.SECONDS);
+                            );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
                 }
@@ -74,7 +74,7 @@ public class AutoWB {
                         Minecraft.getMinecraft().thePlayer.sendChatMessage(
                                 "/gc " + Config.sendMessage1 + msgTrimmed
                         );
-                    }, delay, TimeUnit.SECONDS);
+                    }, Config.sendSeconds, TimeUnit.SECONDS);
             }
         }
 
@@ -100,7 +100,7 @@ public class AutoWB {
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
                                     "/msg " + name + " " + sendMessage + name
-                            );}, delay, TimeUnit.SECONDS);
+                            );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
                 }
@@ -109,7 +109,7 @@ public class AutoWB {
                 Minecraft.getMinecraft().thePlayer.sendChatMessage(
                         "/msg " + name + Config.sendMessage1 + name
                     );
-                }, delay, TimeUnit.SECONDS);
+                }, Config.sendSeconds, TimeUnit.SECONDS);
             }
         }
     }
