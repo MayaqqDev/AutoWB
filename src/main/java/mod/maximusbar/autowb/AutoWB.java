@@ -42,11 +42,11 @@ public class AutoWB {
     @SubscribeEvent
     //The chat receive event
     public void onChat(ClientChatReceivedEvent event){
-
         String msg = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
         //Trimming of the message so its left only with the name
         if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.guildToggle)){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
+            String message = Config.sendMessage1.replace("%player%", msgTrimmed);
             //What happens when you have random message enabled
             if (Config.random){
                 while(true) {
@@ -66,22 +66,23 @@ public class AutoWB {
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                    "/gc " + sendMessage
+                                    "./gc " + sendMessage
                             );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
                 }
                 //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
-                        Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                "/gc " + Config.sendMessage1
-                        );
-                    }, Config.sendSeconds, TimeUnit.SECONDS);
+                    Minecraft.getMinecraft().thePlayer.sendChatMessage(
+                                "./gc " + message
+                    );
+                }, Config.sendSeconds, TimeUnit.SECONDS);
             }
         }
 
         if (msg.startsWith("Friend > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.friendsToggle)){
             String name = msg.replace("Friend > ","").replace(" joined.","");
+            String message = Config.sendMessage1.replace("%player%", name);
             //What happens when you have random message enabled
             if (Config.random){
                 while(true) {
@@ -102,7 +103,7 @@ public class AutoWB {
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                    "/msg " + name + " " + sendMessage
+                                    "./msg " + name + " " + sendMessage
                             );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
@@ -110,7 +111,7 @@ public class AutoWB {
                 //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
                 Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                        "/msg " + name + Config.sendMessage1
+                        "./msg " + name + message
                     );
                 }, Config.sendSeconds, TimeUnit.SECONDS);
             }
