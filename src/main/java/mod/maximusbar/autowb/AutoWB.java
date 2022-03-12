@@ -60,11 +60,11 @@ public class AutoWB {
                         Config.sendMessage8,
                         Config.sendMessage9,
                         Config.sendMessage10
-                }[r];
+                }[r].replace("%player%", msgTrimmed);
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                    "/gc " + sendMessage + msgTrimmed
+                                    "/gc " + sendMessage
                             );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
@@ -72,7 +72,7 @@ public class AutoWB {
                 //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
                         Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                "/gc " + Config.sendMessage1 + msgTrimmed
+                                "/gc " + Config.sendMessage1
                         );
                     }, Config.sendSeconds, TimeUnit.SECONDS);
             }
@@ -95,11 +95,11 @@ public class AutoWB {
                             Config.sendMessage8,
                             Config.sendMessage9,
                             Config.sendMessage10
-                    }[r];
+                    }[r].replace("%player%", name);
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                    "/msg " + name + " " + sendMessage + name
+                                    "/msg " + name + " " + sendMessage
                             );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
@@ -107,7 +107,7 @@ public class AutoWB {
                 //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
                 Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                        "/msg " + name + Config.sendMessage1 + name
+                        "/msg " + name + Config.sendMessage1
                     );
                 }, Config.sendSeconds, TimeUnit.SECONDS);
             }
