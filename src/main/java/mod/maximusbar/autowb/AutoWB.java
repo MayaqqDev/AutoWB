@@ -66,7 +66,7 @@ public class AutoWB {
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                    "./gc " + sendMessage
+                                    "/gc " + sendMessage
                             );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
@@ -74,7 +74,7 @@ public class AutoWB {
                 //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
                     Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                "./gc " + message
+                                "/gc " + message
                     );
                 }, Config.sendSeconds, TimeUnit.SECONDS);
             }
@@ -103,7 +103,7 @@ public class AutoWB {
                     if (!sendMessage.equals("")){
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                                    "./msg " + name + " " + sendMessage
+                                    "/msg " + name + " " + sendMessage
                             );}, Config.sendSeconds, TimeUnit.SECONDS);
                         break;
                     }
@@ -111,7 +111,7 @@ public class AutoWB {
                 //What happens when you have the random message disabled
             }else{ Multithreading.schedule(() -> {
                 Minecraft.getMinecraft().thePlayer.sendChatMessage(
-                        "./msg " + name + message
+                        "/msg " + name + message
                     );
                 }, Config.sendSeconds, TimeUnit.SECONDS);
             }
