@@ -4,7 +4,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "6f53277"
 }
 
-version = "3.1"
+version = "4.0"
 group = "mod.maximusbar"
 archivesBaseName = "AutoWB"
 
@@ -43,7 +43,6 @@ dependencies {
         transitive = false
     }
     compileOnly 'gg.essential:essential-1.8.9-forge:1788'
-    include("xyz.deftu.deftils:Deftils:1.2.2")
 }
 
 /**

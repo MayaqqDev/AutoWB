@@ -1,14 +1,13 @@
 package mod.maximusbar.autowb;
 
+import gg.essential.api.utils.Multithreading;
 import mod.maximusbar.autowb.command.AutoWBCommand;
 import net.minecraft.client.Minecraft;
         import net.minecraftforge.client.event.ClientChatReceivedEvent;
         import net.minecraftforge.common.MinecraftForge;
         import net.minecraftforge.fml.common.Mod;
         import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import xyz.deftu.deftils.Multithreading;
 import mod.maximusbar.autowb.config.Config;
 
 import java.io.File;
@@ -16,34 +15,15 @@ import java.util.concurrent.TimeUnit;
 
 //Some registering stuff
 
-@Mod(modid = "autowb", name = "AutoWB", version = "3.1")
-
+@Mod(modid = "autowb", name = "AutoWB", version = "4.0")
 
 public class AutoWB {
 
-    private boolean running;
-    public static File jarFile;
     public static File modDir = new File(new File(Minecraft.getMinecraft().mcDataDir, "config"), "AutoWB");
     public static Config config;
 
-
-
     @Mod.Instance("autowb")
     public static AutoWB instance;
-
-    @Mod.EventHandler
-    public boolean isRunning() {
-        return running;
-    }
-
-    public void setRunning(boolean running) {
-        this.running = running;
-    }
-    @Mod.EventHandler
-    protected void onFMLPreInitialization(FMLPreInitializationEvent event) {
-        if (!modDir.exists()) modDir.mkdirs();
-        jarFile = event.getSourceFile();
-    }
 
     @Mod.EventHandler
     protected void onInitialization(FMLInitializationEvent event) {
@@ -51,7 +31,6 @@ public class AutoWB {
         config.preload();
         new AutoWBCommand().register();
     }
-
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
@@ -61,12 +40,11 @@ public class AutoWB {
     @SubscribeEvent
     //The chat receive event
     public void onChat(ClientChatReceivedEvent event){
+        int delay = (int) Config.sendSeconds;
         String msg = event.message.getUnformattedText();
         //Trimming of the message so its left only with the name
         if (msg.startsWith("Guild > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.guildToggle)){
             String msgTrimmed = msg.replace("Guild > ","").replace(" joined.","");
-
-
             //What happens when you have random message enabled
             if (Config.toggle2){
                 while(true) {
@@ -87,7 +65,7 @@ public class AutoWB {
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
                                     "/gc " + sendMessage + msgTrimmed
-                            );}, 2, TimeUnit.SECONDS);
+                            );}, delay, TimeUnit.SECONDS);
                         break;
                     }
                 }
@@ -96,18 +74,12 @@ public class AutoWB {
                         Minecraft.getMinecraft().thePlayer.sendChatMessage(
                                 "/gc " + Config.sendMessage1 + msgTrimmed
                         );
-                    }, 2, TimeUnit.SECONDS);
-
-
-
-
+                    }, delay, TimeUnit.SECONDS);
             }
-
         }
+
         if (msg.startsWith("Friend > ") && msg.endsWith(" joined.") && (Config.toggle) && (Config.friendsToggle)){
             String name = msg.replace("Friend > ","").replace(" joined.","");
-
-
             //What happens when you have random message enabled
             if (Config.toggle2){
                 while(true) {
@@ -128,7 +100,7 @@ public class AutoWB {
                         Multithreading.schedule(() -> {
                             Minecraft.getMinecraft().thePlayer.sendChatMessage(
                                     "/msg " + name + " " + sendMessage + name
-                            );}, 2, TimeUnit.SECONDS);
+                            );}, delay, TimeUnit.SECONDS);
                         break;
                     }
                 }
@@ -136,9 +108,8 @@ public class AutoWB {
             }else{ Multithreading.schedule(() -> {
                 Minecraft.getMinecraft().thePlayer.sendChatMessage(
                         "/msg " + name + Config.sendMessage1 + name
-                );
-            }, 2, TimeUnit.SECONDS);
-
+                    );
+                }, delay, TimeUnit.SECONDS);
             }
         }
     }

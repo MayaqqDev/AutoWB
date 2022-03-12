@@ -20,7 +20,7 @@ public class Config extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Toggle Guild",
-            description = "Toggles if the message gets send to Guild",
+            description = "Toggles if the message gets send to Guild.",
             category = "General"
     )
     public static boolean guildToggle = true;
@@ -28,10 +28,19 @@ public class Config extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Toggle Friends",
-            description = "Toggles If message gets send to Friends",
+            description = "Toggles If message gets send to Friends.",
             category = "General"
     )
     public static boolean friendsToggle = true;
+
+    @Property(
+            type = PropertyType.DECIMAL_SLIDER,
+            name = "Seconds",
+            description = "After how many seconds will the message be send.",
+            category = "General",
+            minF = 2F, maxF = 10F
+    )
+    public static float sendSeconds = 2F;
 
     @Property(
             type = PropertyType.TEXT,
