@@ -1,8 +1,8 @@
-package mod.maximusbar.autowb;
+package dev.maximusbar.autowb;
 
 import gg.essential.api.utils.Multithreading;
-import mod.maximusbar.autowb.command.AutoWBCommand;
-import mod.maximusbar.autowb.config.Config;
+import dev.maximusbar.autowb.command.AutoWBCommand;
+import dev.maximusbar.autowb.config.Config;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;

@@ -1,6 +1,6 @@
-package mod.maximusbar.autowb.command;
+package dev.maximusbar.autowb.command;
 
-import mod.maximusbar.autowb.AutoWB;
+import dev.maximusbar.autowb.AutoWB;
 
 import gg.essential.api.EssentialAPI;
 import gg.essential.api.commands.Command;

@@ -1,6 +1,6 @@
-package mod.maximusbar.autowb.config;
+package dev.maximusbar.autowb.config;
 
-import mod.maximusbar.autowb.AutoWB;
+import dev.maximusbar.autowb.AutoWB;
 
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
