@@ -1,4 +1,7 @@
+#**THIS PROJECT IS NOW OUTDATED! PLEASE USE HYTILS REBORN INSTEAD https://github.com/W-OVERFLOW/Hytils-Reborn**
+
 # AutoWB
+
 ![Download Count](https://img.shields.io/github/downloads/Maximusbarcz/AutoWB/total?color=08ff52&style=for-the-badge)
 ![Latest Download Count](https://img.shields.io/github/downloads-pre/Maximusbarcz/AutoWB/latest/total?color=08ff52&style=for-the-badge)
 ![Discord](https://img.shields.io/discord/947450226376048670?color=08ff52&label=Discord&style=for-the-badge)
